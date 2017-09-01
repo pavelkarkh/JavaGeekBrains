@@ -9,15 +9,25 @@ class Animal {
     Animal() {
     }
 
-    boolean run(int distance) {
+    boolean isRun(int distance) {
         return distance <= runDistance;
     }
 
-    boolean swim(int distance) {
+    boolean isSwim(int distance) {
         return distance <= swimDistance;
     }
 
-    boolean jump(float height) {
+    boolean isJump(float height) {
         return height <= jumpHeight;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", runDistance=" + runDistance +
+                ", swimDistance=" + swimDistance +
+                ", jumpHeight=" + jumpHeight +
+                '}';
     }
 }
