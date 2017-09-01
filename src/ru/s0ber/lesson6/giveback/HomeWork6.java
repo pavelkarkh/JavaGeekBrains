@@ -3,10 +3,10 @@ package ru.s0ber.lesson6.giveback;
 import java.util.Random;
 
 public class HomeWork6 {
-    static Random random = new Random();
-    static int runDistance = random.nextInt(100) + 2000;
-    static int swimDistance = random.nextInt(100) + 500;
-    static float jumpHeight = random.nextFloat()+ 0.5f;
+    static private Random random = new Random();
+    static private int runDistance = random.nextInt(100) + 2000;
+    static private int swimDistance = random.nextInt(100) + 500;
+    static private float jumpHeight = random.nextFloat()+ 0.5f;
 
     public static void main(String[] args) {
 
@@ -16,7 +16,9 @@ public class HomeWork6 {
         Dog dog = generateDog();
         System.out.println(dog);
 
+        System.out.println();
         competition(cat);
+        System.out.println();
         competition(dog);
     }
 
@@ -67,7 +69,10 @@ public class HomeWork6 {
             System.out.println(animal.name + " удачно проходит этот этап!");
         } else {
             System.out.println(animal.name + " чуть не утонул, но спасатели прибыли во время! Увы, но это его последний этап.");
+            return;
         }
+
+        System.out.println(animal.name + " удачно проходит все испытания!");
     }
 }
 
