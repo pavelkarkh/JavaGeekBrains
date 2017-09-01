@@ -45,7 +45,7 @@ public class MainClass {
         return new Dog(name, runDistance, swimDistance, jumpHeight);
     }
 
-    private static void competition(ru.s0ber.lesson6.giveback.Animal animal) {
+    private static void competition(Animal animal) {
 
         System.out.println(animal.name + " соревнуется в беге на дистанцию: " + runDistance);
         if (animal.isRun(runDistance)) {

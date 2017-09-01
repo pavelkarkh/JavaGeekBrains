@@ -67,7 +67,6 @@ public class HomeWork6 {
             System.out.println(animal.name + " удачно проходит этот этап!");
         } else {
             System.out.println(animal.name + " чуть не утонул, но спасатели прибыли во время! Увы, но это его последний этап.");
-            return;
         }
     }
 }
