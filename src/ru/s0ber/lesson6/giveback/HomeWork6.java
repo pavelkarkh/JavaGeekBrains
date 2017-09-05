@@ -76,11 +76,11 @@ public class HomeWork6 {
     }
 }
 
-class Animal {
-    String name;
-    int runDistance;
-    int swimDistance;
-    float jumpHeight;
+abstract class Animal {
+    protected String name;
+    protected int runDistance;
+    protected int swimDistance;
+    protected float jumpHeight;
 
     Animal() {
     }
