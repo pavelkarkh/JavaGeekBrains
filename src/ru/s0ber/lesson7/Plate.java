@@ -8,16 +8,19 @@ public class Plate {
     }
 
     public void info() {
-        System.out.format("В тарелке осталось %d еды", this.food);
-        System.out.println();
+        System.out.format("В тарелке осталось %d еды.\n", this.food);
     }
 
-    public void decreaseFood(int food) {
+    public boolean decreaseFood(int food) {
         if (food > this.food) {
-            System.out.println("Теперь тарелка пуста");
-            this.food = 0;
+            return false;
         } else {
             this.food -= food;
+            return true;
         }
+    }
+
+    public void increaseFood(int food) {
+        this.food += food;
     }
 }
