@@ -7,9 +7,11 @@ import java.awt.event.ActionListener;
 
 public class Frame extends JFrame {
     private Map map;
+    private Game game;
 
-    public Frame(Map map) {
+    public Frame(Map map, Game game) {
         this.map = map;
+        this.game = game;
         setSize(500,545);
         setLocation(600,200);
         setTitle("Tic tac toe");
@@ -45,7 +47,21 @@ public class Frame extends JFrame {
         setVisible(true);
     }
 
-    public void gameEndWindow() {
-        //
+    public void gameEndWindow(String title) {
+        int reply = JOptionPane.showConfirmDialog(Frame.this,
+                "Игра окончена. Продолжить?",
+                title,
+                JOptionPane.YES_OPTION,
+                JOptionPane.NO_OPTION,
+                null);
+        if (reply == JOptionPane.YES_OPTION) {
+            //
+            map.init();
+            game.setFirstPlayerTurn(true);
+        }
+        if (reply == JOptionPane.NO_OPTION) {
+            //
+            System.exit(0);
+        }
     }
 }

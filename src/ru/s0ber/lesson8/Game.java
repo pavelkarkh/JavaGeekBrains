@@ -7,26 +7,17 @@ import java.util.Random;
 public class Game {
     public static final int SIZE = 3;
     public static final int CHIP_TO_WIN = 3;
-    private final int DRAW = 2;
-    private final int WIN = 1;
     private Frame frame;
     private Map map;
     private boolean isFirstPlayerTurn;
-    private boolean isGameEnd;
     private Random random;
 
     public Game() {
         map = new Map(SIZE);
         map.init();
         isFirstPlayerTurn = true;
-        isGameEnd = false;
         random = new Random();
-    }
-
-    // старт игры
-    public void start() {
-        frame = new Frame(map);
-
+        frame = new Frame(map, this);
         map.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -38,28 +29,40 @@ public class Game {
                 }
             }
         });
+    }
+
+    public void setFirstPlayerTurn(boolean firstPlayerTurn) {
+        isFirstPlayerTurn = firstPlayerTurn;
+    }
+
+    // старт игры
+    public void start() {
 
         do {
             humanTurn();
             if (checkWin(Map.PLAYER)){
                 //вывести окно о победе
-                System.out.println("WIN");
+                //System.out.println("WIN");
+                frame.gameEndWindow("Вы победили!");
                 //break;
             }
             if (checkDraw()){
                 //вывести окно о ничьей
-                System.out.println("DRAW");
+                //System.out.println("DRAW");
+                frame.gameEndWindow("Ничья.");
                 //break;
             }
             aiTurn();
             if (checkWin(Map.AI_PLAYER)){
                 //вывести окно о победе
-                System.out.println("WIN");
+                //System.out.println("Вы проиграли");
+                frame.gameEndWindow("Вы проиграли. Увы.");
                 //break;
             }
             if (checkDraw()){
                 //вывести окно о ничьей
-                System.out.println("DRAW");
+                //System.out.println("DRAW");
+                frame.gameEndWindow("Ничья.");
                 //break;
             }
         } while (true);
@@ -113,7 +116,7 @@ public class Game {
 
             field[x][y] = Map.AI_PLAYER;
 
-            System.out.println("ход компьютера");
+            //System.out.println("ход компьютера");
             map.repaint();
             isFirstPlayerTurn = true;
         }
