@@ -32,6 +32,7 @@ public class Frame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 map.init();
+                game.setFirstPlayerTurn(true);
             }
         });
 
